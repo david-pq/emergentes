@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Gestión de Productos</h1>
+
+    <div class="cuadro-listado">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Fecha de Vencimiento</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+            {% for producto in registros %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.cantidad }}</td>
+                <td>${{ producto.precio }}</td>
+                <td>{{ producto.fecha_vencimiento }}</td>
+                <td>{{ producto.categoria }}</td>
+                <td>
+                    <form method="POST" action="/gestion">
+                        <input type="hidden" name="indice" value="{{ loop.index0 }}">
+                        <button type="submit" name="accion" value="editar">Editar</button>
+                        <button type="submit" name="accion" value="eliminar">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/">Nuevo Producto</a>
+    </div>
+</body>
+</html>

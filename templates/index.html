@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <form method="POST" action="/" class="formulario-principal">
+        <div class="formulario-cuadro">
+            <h2>SEGUNDO PARCIAL TEM-742</h2>
+            <h2>Nombre: David Quispe Pachacuti</h2>
+            <h2>Carnet: 8416200</h2>
+
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" required>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" required>
+
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required>
+
+            <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+            <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" required>
+
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="alimentos">Alimentos</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="limpieza">Limpieza</option>
+                <option value="electronica">Electrónica</option>
+            </select>
+        </div>
+
+        <button type="submit">Registrar Producto</button>
+    </form>
+</body>
+</html>
